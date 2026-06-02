@@ -1,0 +1,372 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_ALEXANDERZOBNIN-ZABBIX-DATASOURCE",
+      "label": "alexanderzobnin-zabbix-datasource",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "alexanderzobnin-zabbix-datasource",
+      "pluginName": "Zabbix"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "datasource",
+      "id": "alexanderzobnin-zabbix-datasource",
+      "name": "Zabbix",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "gapit-htmlgraphics-panel",
+      "name": "HTML graphics",
+      "version": "2.1.1"
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "10.2.6"
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "Switchs - Status ICMP Total RX TX",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "alexanderzobnin-zabbix-datasource",
+        "uid": "${DS_ALEXANDERZOBNIN-ZABBIX-DATASOURCE}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 24,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "SVGBaseFix": true,
+        "add100Percentage": true,
+        "calcsMutation": "standard",
+        "centerAlignContent": false,
+        "codeData": "{\n  \"title\": \"Switches - Status e Porta Monitorada\",\n  \"subtitle\": \"Status ICMP, latência/perda ICMP, tráfego total RX/TX e métricas da porta monitorada por switch\",\n  \"monitoredPort\": \"1\",\n   \"miniSeriesBucketMs\": 60000,\n  \"monitoredPortByHost\": {\n    \"/Switch Call Center Mikrotik/\": \"23\",\n    \"/Switch Cisco Catalyst 2960G/\": \"01\",\n    \"/Switch DELL PowerConnect 2848/\": \"1\",\n    \"/Switch Engenharia TP-Link/\": \"24\",\n    \"/Switch ENGENHARIA/\": \"1\",\n    \"/Switch Fundicao TP-Link/\": \"02\",\n    \"/Switch HP 1920S SRV/\": \"25\",\n    \"/Switch Mikrotik Girassol/\": \"24\",\n    \"/Switch Semiacabado TP-Link 02/\": \"22\",\n    \"/Switch Semiacabado TP-Link/\": \"24\",\n    \"/Switch Servidor TP-Link/\": \"48\"\n  },\n  \"fallbackSpeedMbps\": 1000,\n  \"usageWarnPct\": 70,\n  \"usageCriticalPct\": 90,\n  \"errorWarnCount\": 1,\n  \"discardWarnCount\": 1\n}",
+        "css": ":host {\n  --bg: #0b1118;\n  --panel: rgba(13, 20, 29, 0.96);\n  --panel-2: rgba(18, 29, 42, 0.94);\n  --header: rgba(7, 13, 20, 0.88);\n  --line: rgba(148, 163, 184, 0.18);\n  --line-strong: rgba(148, 163, 184, 0.28);\n  --muted: #91a1b5;\n  --text: #e5edf6;\n  --green: #10ac49;\n  --yellow: #facc15;\n  --orange: #fb923c;\n  --red: #ef4444;\n  --blue: #38bdf8;\n  --violet: #a78bfa;\n}\n\n* { box-sizing: border-box; }\n\n.sw48-root {\n  width: 100%;\n  min-height: 100%;\n  padding: 16px;\n  color: var(--text);\n  font-family: Inter, Roboto, Arial, sans-serif;\n  background:\n    radial-gradient(circle at top left, rgba(34, 197, 94, 0.12), transparent 26%),\n    radial-gradient(circle at top right, rgba(56, 189, 248, 0.10), transparent 30%),\n    linear-gradient(135deg, #110d1d 0%, #102223 56%, #081815 100%);\n}\n\n\n.dash-header {\n  display: flex;\n  justify-content: space-between;\n  gap: 18px;\n  align-items: center;\n  margin-bottom: 14px;\n}\n\n.brand-block {\n  display: flex;\n  align-items: center;\n  gap: 14px;\n  min-width: 0;\n}\n\n.logo-mark {\n  width: 54px;\n  height: 54px;\n  border: 1px solid rgba(255, 255, 255, 0.18);\n  border-radius: 14px;\n  display: grid;\n  place-items: center;\n  color: #ffffff;\n  font-weight: 900;\n  letter-spacing: 0.04em;\n  background: linear-gradient(135deg, rgba(34, 197, 94, 0.85), rgba(56, 189, 248, 0.65));\n  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.26);\n}\n\n.eyebrow {\n  color: var(--blue);\n  text-transform: uppercase;\n  font-size: 11px;\n  letter-spacing: 0.14em;\n  margin-bottom: 3px;\n}\n\nh2, h3, p { margin: 0; }\n\nh2 {\n  font-size: 23px;\n  line-height: 1.15;\n  font-weight: 750;\n}\n\n.dash-header p,\n.table-title-row p,\n.debug-card p {\n  color: var(--muted);\n  margin-top: 4px;\n  font-size: 12px;\n}\n\n.header-actions {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-end;\n  gap: 9px;\n}\n\n.updated {\n  color: var(--muted);\n  font-size: 12px;\n  white-space: nowrap;\n}\n\n.legend {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n  gap: 10px;\n  color: var(--muted);\n  font-size: 12px;\n}\n\n.dot {\n  width: 9px;\n  height: 9px;\n  display: inline-block;\n  border-radius: 999px;\n  margin-right: 6px;\n  box-shadow: 0 0 12px currentColor;\n}\n\n.dot.up { color: var(--green); background: var(--green); }\n.dot.warn { color: var(--orange); background: var(--orange); }\n.dot.down { color: var(--red); background: var(--red); }\n.dot.unknown { color: #64748b; background: #64748b; }\n\n.kpi-grid {\n  display: grid;\n  grid-template-columns: repeat(5, minmax(0, 1fr));\n  gap: 10px;\n  margin-bottom: 12px;\n}\n\n.kpi-card {\n  background: linear-gradient(180deg, rgba(18, 29, 42, 0.96), rgba(11, 17, 24, 0.94));\n  border: 1px solid var(--line);\n  border-radius: 12px;\n  padding: 12px 14px;\n  min-height: 82px;\n  box-shadow: 0 12px 28px rgba(39, 79, 105, 0.18);\n  position: relative;\n  overflow: hidden;\n}\n\n.kpi-card::after {\n  content: \"\";\n  position: absolute;\n  inset: auto 0 0 0;\n  height: 4px;\n  background: linear-gradient(90deg, rgba(56, 189, 248, 0.1), rgba(56, 189, 248, 0.75));\n}\n\n.kpi-card.good::after { background: linear-gradient(90deg, rgba(34, 197, 94, 0.12), rgba(34, 197, 94, 0.82)); }\n.kpi-card.bad::after { background: linear-gradient(90deg, rgba(239, 68, 68, 0.12), rgba(239, 68, 68, 0.82)); }\n.kpi-card.warn::after { background: linear-gradient(90deg, rgba(251, 146, 60, 0.12), rgba(251, 146, 60, 0.82)); }\n.kpi-card.usage::after { background: linear-gradient(90deg, rgba(167, 139, 250, 0.12), rgba(167, 139, 250, 0.82)); }\n\n.kpi-card span {\n  color: var(--muted);\n  font-size: 12px;\n  text-transform: uppercase;\n  letter-spacing: 0.08em;\n}\n\n.kpi-card strong {\n  display: block;\n  margin-top: 6px;\n  font-size: 26px;\n  line-height: 1;\n}\n\n.kpi-card small {\n  display: block;\n  color: var(--muted);\n  margin-top: 8px;\n  font-size: 11px;\n}\n\n.toolbar {\n  display: flex;\n  justify-content: space-between;\n  gap: 12px;\n  align-items: center;\n  padding: 10px;\n  border: 1px solid var(--line);\n  border-radius: 12px;\n  background: rgba(26, 73, 73, 0.6);\n  margin-bottom: 12px;\n}\n\n.search-box {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  color: var(--muted);\n  font-size: 12px;\n  min-width: 300px;\n}\n\n.search-box input {\n  width: 100%;\n  color: var(--text);\n  background: rgba(8, 26, 9, 0.9);\n  border: 1px solid var(--line);\n  border-radius: 9px;\n  padding: 8px 10px;\n  outline: none;\n}\n\n.search-box input:focus {\n  border-color: rgba(20, 56, 71, 0.65);\n  box-shadow: 0 0 0 2px rgba(184, 248, 56, 0.12);\n}\n\n.filter-box {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-end;\n  gap: 7px;\n}\n\n.filter-chip {\n  appearance: none;\n  color: var(--muted);\n  background: rgba(20, 77, 43, 0.9);\n  border: 1px solid var(--line);\n  border-radius: 999px;\n  padding: 7px 11px;\n  font-size: 12px;\n  cursor: pointer;\n}\n\n.filter-chip.active,\n.filter-chip:hover {\n  color: #fff;\n  border-color: rgba(22, 178, 245, 0.45);\n  background: rgba(229, 243, 249, 0.14);\n}\n\n.table-card,\n.debug-card {\n  border: 1px solid var(--line);\n  border-radius: 14px;\n  background: rgba(10, 16, 24, 0.92);\n  overflow: hidden;\n  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.26);\n}\n\n.table-title-row {\n  display: flex;\n  justify-content: space-between;\n  gap: 12px;\n  align-items: center;\n  padding: 13px 15px;\n  background: linear-gradient(180deg, rgba(9, 7, 33, 0.96), rgba(13, 20, 29, 0.96));\n  border-bottom: 1px solid var(--line);\n}\n\n.table-title-row h3 {\n  font-size: 15px;\n  font-weight: 700;\n}\n\n.table-title-row strong {\n  color: #0da982;\n}\n\n.row-count {\n  color: var(--muted);\n  font-size: 12px;\n  white-space: nowrap;\n}\n\n.table-scroll {\n  width: 100%;\n  overflow: auto;\n  max-height: 200vh;\n}\n\n.port-table {\n  width: 100%;\n  border-collapse: separate;\n  border-spacing: 0;\n  min-width: 1320px;\n}\n\n.port-table thead th {\n  position: sticky;\n  top: 0;\n  z-index: 2;\n  color: #c8d5e5;\n  background: #111827;\n  border-bottom: 1px solid var(--line-strong);\n  border-right: 1px solid rgba(215, 132, 90, 0.08);\n  padding: 10px 12px;\n  text-align: left;\n  font-size: 12px;\n  font-weight: 700;\n  text-transform: uppercase;\n  letter-spacing: 0.045em;\n  white-space: nowrap;\n  cursor: pointer;\n  user-select: none;\n}\n\n.port-table thead th:hover {\n  color: #fff;\n  background: #0a296c;\n}\n\n.port-table tbody td {\n  border-bottom: 1px solid rgba(148, 163, 184, 0.10);\n  border-right: 1px solid rgba(148, 163, 184, 0.06);\n  padding: 8px 12px;\n  vertical-align: middle;\n  font-size: 13px;\n  white-space: nowrap;\n}\n\n.port-table tbody tr {\n  background: rgba(20, 30, 42, 0.92);\n}\n\n.port-table tbody tr:nth-child(even) {\n  background: rgba(15, 23, 36, 0.92);\n}\n\n.port-table tbody tr:hover {\n  background: rgba(29, 71, 67, 0.86);\n}\n\n.port-cell-main {\n  font-weight: 800;\n  color: #c0e4ff;\n  min-width: 110px;\n}\n\n.subtext {\n  display: block;\n  color: var(--muted);\n  font-size: 11px;\n  margin-top: 2px;\n}\n\n.status-cell,\n.usage-cell,\n.counter-cell {\n  min-width: 92px;\n  text-align: center !important;\n  font-weight: 800;\n  color: #fff;\n  text-shadow: 0 1px 0 rgba(0,0,0,0.2);\n}\n\n.status-cell.up,\n.usage-cell.good,\n.counter-cell.ok {\n  background: linear-gradient(90deg, rgba(2, 61, 77, 0.88), rgba(15, 255, 155, 0.54));\n}\n\n.status-cell.down,\n.usage-cell.bad,\n.counter-cell.bad {\n  background: linear-gradient(90deg, rgba(127, 29, 29, 0.94), rgba(239, 68, 68, 0.70));\n}\n\n.status-cell.warn,\n.usage-cell.warn,\n.counter-cell.warn {\n  background: linear-gradient(90deg, rgba(194, 65, 12, 0.92), rgba(251, 146, 60, 0.65));\n}\n\n.status-cell.unknown,\n.usage-cell.unknown,\n.counter-cell.unknown {\n  color: #cbd5e1;\n  background: linear-gradient(90deg, rgba(51, 65, 85, 0.82), rgba(71, 85, 105, 0.50));\n}\n\n.traffic-cell {\n  min-width: 180px;\n}\n\n.traffic-value {\n  display: flex;\n  justify-content: space-between;\n  gap: 10px;\n  align-items: baseline;\n  margin-bottom: 5px;\n}\n\n.traffic-value strong {\n  font-size: 13px;\n  color: #f8fafc;\n}\n\n.traffic-value span {\n  color: var(--muted);\n  font-size: 11px;\n}\n\n.meter {\n  height: 10px;\n  background: rgba(15, 23, 42, 0.92);\n  border: 1px solid rgba(148, 163, 184, 0.13);\n  border-radius: 999px;\n  overflow: hidden;\n}\n\n.meter > i {\n  display: block;\n  height: 100%;\n  width: 0;\n  border-radius: inherit;\n}\n\n.meter > i.download {\n  background: linear-gradient(90deg, rgba(181, 198, 188, 0.95), rgba(56,189,248,0.95));\n}\n\n.meter > i.upload {\n  background: linear-gradient(90deg, rgba(109, 71, 224, 0.95), rgba(251,146,60,0.95));\n}\n\n.speed-cell {\n  min-width: 110px;\n  font-weight: 700;\n  color: #eaf2fb;\n}\n\n.type-cell {\n  min-width: 160px;\n  color: #cbd5e1;\n}\n\n.debug-card {\n  margin-top: 12px;\n  padding: 12px 14px;\n}\n\n.debug-card summary {\n  cursor: pointer;\n  color: #dbeafe;\n  font-weight: 700;\n}\n\n.debug-card pre {\n  max-height: 220px;\n  overflow: auto;\n  padding: 10px;\n  border-radius: 10px;\n  background: rgba(2, 6, 23, 0.88);\n  color: #cbd5e1;\n  font-size: 11px;\n  white-space: pre-wrap;\n  border: 1px solid rgba(148, 163, 184, 0.12);\n}\n\n.empty-state {\n  display: none;\n  flex-direction: column;\n  gap: 6px;\n  align-items: center;\n  justify-content: center;\n  margin-top: 12px;\n  min-height: 120px;\n  padding: 24px;\n  color: var(--muted);\n  background: rgba(15, 23, 42, 0.72);\n  border: 1px dashed rgba(148, 163, 184, 0.28);\n  border-radius: 14px;\n  text-align: center;\n}\n\n.empty-state strong { color: #f8fafc; }\n\n@media (max-width: 1000px) {\n  .dash-header, .toolbar, .table-title-row {\n    flex-direction: column;\n    align-items: stretch;\n  }\n  .header-actions { align-items: flex-start; }\n  .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }\n  .search-box { min-width: 0; }\n}\n\n@media (max-width: 860px) {\n  .kpi-grid { grid-template-columns: 1fr; }\n  .logo-mark { width: 46px; height: 46px; }\n  h2 { font-size: 19px; }\n}\n\n.kpi-card.switch-status.good::after,\n.kpi-card.switch-status.online::after {\n  background: linear-gradient(90deg, rgba(34, 197, 94, 0.12), rgba(154, 154, 154, 0.82));\n}\n\n.kpi-card.switch-status.bad::after,\n.kpi-card.switch-status.offline::after {\n  background: linear-gradient(90deg, rgba(239, 68, 68, 0.12), rgba(239, 68, 68, 0.82));\n}\n\n.kpi-card.switch-status.unknown::after {\n  background: linear-gradient(90deg, rgba(100, 116, 139, 0.12), rgba(100, 116, 139, 0.82));\n}\n\n.kpi-card.switch-status.online strong {\n  color: var(--green);\n}\n\n.kpi-card.switch-status.offline strong {\n  color: var(--red);\n}\n\n.kpi-card.switch-status.unknown strong {\n  color: #94a3b8;\n}\n\n.host-cell-main {\n  font-weight: 800;\n  color: #eef6ff;\n  min-width: 210px;\n  max-width: 320px;\n  white-space: normal !important;\n}\n\n.icmp-cell {\n  min-width: 105px;\n  font-weight: 800;\n  color: #eaf2fb;\n}\n\n.port-table {\n  min-width: 1580px;\n}\n\n\n.mini-series-grid {\n  display: grid;\n  grid-template-columns: repeat(2, minmax(220px, 290px));\n  gap: 12px;\n  min-width: 0;\n}\n\n.mini-series-card {\n  border: 1px solid rgba(148, 163, 184, 0.18);\n  border-radius: 16px;\n  padding: 10px 12px 10px;\n  min-width: 0;\n  background: linear-gradient(180deg, rgba(8, 16, 26, 0.90), rgba(10, 20, 30, 0.68));\n  box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);\n}\n\n.mini-series-top {\n  display: flex;\n  align-items: flex-start;\n  justify-content: space-between;\n  gap: 10px;\n  margin-bottom: 8px;\n}\n\n.mini-series-kicker {\n  color: var(--muted);\n  text-transform: uppercase;\n  letter-spacing: 0.10em;\n  font-size: 10px;\n  margin-bottom: 2px;\n}\n\n.mini-series-title {\n  color: var(--text);\n  font-size: 13px;\n  font-weight: 700;\n}\n\n.mini-series-value {\n  color: #ffffff;\n  font-size: 21px;\n  font-weight: 800;\n  white-space: nowrap;\n  line-height: 1.15;\n  text-align: right;\n}\n\n.mini-series-svg {\n  width: 100%;\n  height: 56px;\n  display: block;\n  overflow: visible;\n}\n\n@media (max-width: 1280px) {\n  .dash-header {\n    align-items: flex-start;\n    flex-direction: column;\n  }\n\n  .header-actions {\n    width: 100%;\n  }\n\n  .mini-series-grid {\n    width: 100%;\n    grid-template-columns: repeat(2, minmax(180px, 1fr));\n  }\n}\n\n@media (max-width: 760px) {\n  .mini-series-grid {\n    grid-template-columns: 1fr;\n  }\n}",
+        "dynamicData": true,
+        "dynamicFieldDisplayValues": true,
+        "dynamicHtmlGraphics": true,
+        "dynamicProps": true,
+        "html": "<div id=\"sw1-root\" class=\"sw48-root\">\n  <header class=\"dash-header\">\n    <div class=\"brand-block\">\n      <!-- <div class=\"logo-mark\">SW</div> -->\n<div class=\"mini-series-grid\">\n  <div class=\"mini-series-card\">\n    <div class=\"mini-series-top\">\n      <div>\n        <div class=\"mini-series-kicker\">Bandwith LAN</div>\n        <div class=\"mini-series-title\">RX</div>\n      </div>\n      <div id=\"miniRxValue\" class=\"mini-series-value\">—</div>\n    </div>\n    <svg id=\"miniRxSvg\" class=\"mini-series-svg\" viewBox=\"0 0 220 56\" preserveAspectRatio=\"none\"></svg>\n  </div>\n\n  <div class=\"mini-series-card\">\n    <div class=\"mini-series-top\">\n      <div>\n        <div class=\"mini-series-kicker\">Bandwith LAN</div>\n        <div class=\"mini-series-title\">TX</div>\n      </div>\n      <div id=\"miniTxValue\" class=\"mini-series-value\">—</div>\n    </div>\n    <svg id=\"miniTxSvg\" class=\"mini-series-svg\" viewBox=\"0 0 220 56\" preserveAspectRatio=\"none\"></svg>\n  </div>\n</div>\n\n    <div class=\"header-actions\">\n      <div id=\"lastUpdated\" class=\"updated\">Atualizado: —</div>\n      <div class=\"legend\">\n        <span><i class=\"dot up\"></i>Online / UP</span>\n        <span><i class=\"dot warn\"></i>Atenção</span>\n        <span><i class=\"dot down\"></i>Offline</span>\n       \n      </div>\n    </div>\n  </header>\n\n  <section class=\"kpi-grid\">\n    <article class=\"kpi-card\">\n      <span>Switchs</span>\n      <strong id=\"kpiTotal\">—</strong>\n      <small>Hosts identificados</small>\n    </article>\n    <article class=\"kpi-card good\">\n      <span>Online</span>\n      <strong id=\"kpiOnline\">—</strong>\n      <small>ICMP ping = 1</small>\n    </article>\n    <article class=\"kpi-card bad\">\n      <span>Offline</span>\n      <strong id=\"kpiOffline\">—</strong>\n      <small>ICMP ping = 0</small>\n    </article>\n    <article class=\"kpi-card warn\">\n      <span>Portas com Instabilidade</span>\n      <strong id=\"kpiPort1Problems\">—</strong>\n      <small>status, erros ou descartes</small>\n    </article>\n    <article class=\"kpi-card usage\">\n      <span>Tráfego total</span>\n      <strong id=\"kpiTotalTraffic\">—</strong>\n      <small>RX + TX dos switchs</small>\n    </article>\n  </section>\n\n  <section class=\"toolbar\">\n    <div class=\"search-box\">\n      <span>Pesquisar</span>\n      <input id=\"tableSearch\" type=\"search\" placeholder=\"Switch, porta, status...\" autocomplete=\"off\" />\n    </div>\n\n    <div class=\"filter-box\">\n      <button type=\"button\" class=\"filter-chip active\" data-filter=\"all\">Todos</button>\n      <button type=\"button\" class=\"filter-chip\" data-filter=\"online\">Online</button>\n      <button type=\"button\" class=\"filter-chip\" data-filter=\"offline\">Offline</button>\n      <button type=\"button\" class=\"filter-chip\" data-filter=\"portdown\">Porta DOWN</button>\n      <button type=\"button\" class=\"filter-chip\" data-filter=\"errors\">Erros</button>\n      <button type=\"button\" class=\"filter-chip\" data-filter=\"discards\">Descartes</button>\n      <button type=\"button\" class=\"filter-chip\" data-filter=\"problems\">Problemas</button>\n    </div>\n  </section>\n\n  <section class=\"table-card\">\n    <div class=\"table-title-row\">\n      <div>\n        <h3>Tabela de Switchs</h3>\n        <p>Status, Latência, Bandiwith, ICMP</p>\n      </div>\n      <div id=\"rowCount\" class=\"row-count\">0 linhas</div>\n    </div>\n\n    <div class=\"table-scroll\">\n      <table class=\"port-table\">\n        <thead>\n          <tr>\n            <th data-sort=\"host\">Switch</th>\n            <th data-sort=\"switchStatus\">Status Switch</th>\n            <th data-sort=\"icmp\">ICMP</th>\n            <th data-sort=\"totalRx\">Total RX</th>\n            <th data-sort=\"totalTx\">Total TX</th>\n            <th data-sort=\"port1\">Porta monitorada</th>\n            <th data-sort=\"portStatus\">Status Porta</th>\n            <th data-sort=\"download\">Download Porta</th>\n            <th data-sort=\"upload\">Upload Porta</th>\n            <th data-sort=\"inErrors\">Erros RX</th>\n            <th data-sort=\"outErrors\">Erros TX</th>\n            <th data-sort=\"inDiscards\">Descartes RX</th>\n            <th data-sort=\"outDiscards\">Descartes TX</th>\n            <th data-sort=\"updatedAt\">Última coleta</th>\n          </tr>\n        </thead>\n        <tbody id=\"switchRows\"></tbody>\n      </table>\n    </div>\n  </section>\n\n  <section class=\"debug-card\">\n    <details>\n      <summary>Diagnóstico dos itens recebidos do Zabbix</summary>\n      <p>Use esta área para confirmar os nomes reais dos itens de ICMP, tráfego e porta 1.</p>\n      <pre id=\"debugItems\"></pre>\n    </details>\n  </section>\n\n  <div id=\"emptyState\" class=\"empty-state\">\n    <strong>Nenhum switch foi identificado.</strong>\n    <span>Confira grupo, host, filtro de itens e nomes retornados pelo datasource Zabbix.</span>\n  </div>\n</div>",
+        "onInit": "",
+        "onInitOnResize": true,
+        "onRender": "(function () {\n  const hg = typeof htmlGraphics !== 'undefined' ? htmlGraphics : {};\n  const props = hg.customProperties || (typeof customProperties !== 'undefined' ? customProperties : {}) || {};\n  const panelData = hg.data || (typeof data !== 'undefined' ? data : { series: [] });\n\n  const root = htmlNode.querySelector('#sw1-root');\n  const rowsEl = htmlNode.querySelector('#switchRows');\n  const emptyEl = htmlNode.querySelector('#emptyState');\n  const rowCountEl = htmlNode.querySelector('#rowCount');\n  const searchEl = htmlNode.querySelector('#tableSearch');\n  const titleEl = htmlNode.querySelector('#dashTitle');\n  const subtitleEl = htmlNode.querySelector('#dashSubtitle');\n  const miniRxValueEl = htmlNode.querySelector('#miniRxValue');\n  const miniTxValueEl = htmlNode.querySelector('#miniTxValue');\n  const miniRxSvgEl = htmlNode.querySelector('#miniRxSvg');\n  const miniTxSvgEl = htmlNode.querySelector('#miniTxSvg');\n  const updatedEl = htmlNode.querySelector('#lastUpdated');\n  const debugEl = htmlNode.querySelector('#debugItems');\n  const kpiTotalEl = htmlNode.querySelector('#kpiTotal');\n  const kpiOnlineEl = htmlNode.querySelector('#kpiOnline');\n  const kpiOfflineEl = htmlNode.querySelector('#kpiOffline');\n  const kpiPort1ProblemsEl = htmlNode.querySelector('#kpiPort1Problems');\n  const kpiTotalTrafficEl = htmlNode.querySelector('#kpiTotalTraffic');\n\n  if (!root || !rowsEl || !emptyEl) return;\n\n  const cfg = Object.assign({\n    title: 'Switches - Status e Porta Monitorada',\n    subtitle: 'Status ICMP, latência/perda ICMP, tráfego total RX/TX e métricas da porta monitorada',\n    monitoredPort: '1',\n    monitoredPortByHost: {},\n    fallbackSpeedMbps: 1000,\n    miniSeriesBucketMs: 60000,\n    usageWarnPct: 70,\n    usageCriticalPct: 90,\n    errorWarnCount: 1,\n    discardWarnCount: 1\n  }, props);\n\n  const state = root.__switchTableState || {\n    sortKey: 'host',\n    sortDir: 'asc',\n    filter: 'all',\n    search: ''\n  };\n  root.__switchTableState = state;\n\n  const safeText = (value) => String(value ?? '').replace(/[&<>\"']/g, (char) => ({\n    '&': '&amp;',\n    '<': '&lt;',\n    '>': '&gt;',\n    '\"': '&quot;',\n    \"'\": '&#039;'\n  }[char]));\n\n  const normalizeText = (text) => String(text || '')\n    .normalize('NFD')\n    .replace(/[\\u0300-\\u036f]/g, '')\n    .toLowerCase();\n\n  const vectorToArray = (values) => {\n    if (!values) return [];\n    if (Array.isArray(values)) return values;\n    if (typeof values.toArray === 'function') return values.toArray();\n    if (typeof values.length === 'number') {\n      const arr = [];\n      for (let i = 0; i < values.length; i += 1) {\n        arr.push(typeof values.get === 'function' ? values.get(i) : values[i]);\n      }\n      return arr;\n    }\n    return [];\n  };\n\n  const lastNonEmpty = (field) => {\n    const arr = vectorToArray(field.values);\n    for (let i = arr.length - 1; i >= 0; i -= 1) {\n      const value = arr[i];\n      if (value !== null && value !== undefined && value !== '') return value;\n    }\n    const calc = field.state && field.state.calcs;\n    if (calc) {\n      const candidates = [calc.lastNotNull, calc.last, calc.mean, calc.max];\n      for (const candidate of candidates) {\n        if (candidate !== null && candidate !== undefined && candidate !== '') return candidate;\n      }\n    }\n    return null;\n  };\n\n  const getTimeField = (series) => (series.fields || []).find((f) => f.type === 'time' || /time/i.test(f.name || ''));\n\n  const lastTime = (series) => {\n    const timeField = getTimeField(series);\n    if (!timeField) return null;\n    const arr = vectorToArray(timeField.values);\n    for (let i = arr.length - 1; i >= 0; i -= 1) {\n      const ts = Number(arr[i]);\n      if (Number.isFinite(ts)) return ts;\n    }\n    return null;\n  };\n\n  const addSeriesToHistory = (bucketMap, timeField, valueField) => {\n    if (!timeField || !valueField) return;\n    const times = vectorToArray(timeField.values);\n    const values = vectorToArray(valueField.values);\n    const len = Math.min(times.length, values.length);\n\n    for (let i = 0; i < len; i += 1) {\n      const ts = Number(times[i]);\n      const val = metricValueToNumber(values[i]);\n      if (!Number.isFinite(ts) || !Number.isFinite(val)) continue;\n      bucketMap.set(ts, (bucketMap.get(ts) || 0) + val);\n    }\n  };\n\n  const historyToPoints = (bucketMap) => Array.from(bucketMap.entries())\n    .map(([ts, value]) => ({ ts: Number(ts), value: Number(value) }))\n    .filter((p) => Number.isFinite(p.ts) && Number.isFinite(p.value))\n    .sort((a, b) => a.ts - b.ts);\n\n  const downsamplePoints = (points, maxPoints) => {\n    if (!Array.isArray(points) || points.length <= maxPoints) return points || [];\n    const step = (points.length - 1) / (maxPoints - 1);\n    const sampled = [];\n    for (let i = 0; i < maxPoints; i += 1) {\n      sampled.push(points[Math.round(i * step)]);\n    }\n    return sampled;\n  };\n\n  const renderSparkline = (svgEl, points, color) => {\n    if (!svgEl) return;\n\n    const width = 220;\n    const height = 56;\n    const padX = 2;\n    const padY = 4;\n\n    if (!points || !points.length) {\n      svgEl.innerHTML = '<path d=\"M 2 28 L 218 28\" fill=\"none\" stroke=\"rgba(148,163,184,0.35)\" stroke-width=\"2\" stroke-dasharray=\"4 4\"></path>';\n      return;\n    }\n\n    const values = points.map((p) => p.value);\n    let minV = Math.min.apply(null, values);\n    let maxV = Math.max.apply(null, values);\n\n    if (minV === maxV) {\n      minV -= 1;\n      maxV += 1;\n    }\n\n    const usableW = width - (padX * 2);\n    const usableH = height - (padY * 2);\n\n    const coords = points.map((p, i) => {\n      const x = padX + ((usableW * i) / Math.max(1, points.length - 1));\n      const normalized = (p.value - minV) / Math.max(1e-9, (maxV - minV));\n      const y = height - padY - (normalized * usableH);\n      return [x, y];\n    });\n\n    const linePath = coords.map((c, i) => (i === 0 ? 'M ' : ' L ') + c[0].toFixed(2) + ' ' + c[1].toFixed(2)).join('');\n    const areaPath = linePath + ' L ' + coords[coords.length - 1][0].toFixed(2) + ' ' + (height - padY).toFixed(2) + ' L ' + coords[0][0].toFixed(2) + ' ' + (height - padY).toFixed(2) + ' Z';\n    const last = coords[coords.length - 1];\n\n    svgEl.innerHTML = [\n      '<defs>',\n      '  <linearGradient id=\"grad-' + color.replace(/[^a-z0-9]/gi, '') + '\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\">',\n      '    <stop offset=\"0%\" stop-color=\"' + color + '\" stop-opacity=\"0.30\"></stop>',\n      '    <stop offset=\"100%\" stop-color=\"' + color + '\" stop-opacity=\"0.02\"></stop>',\n      '  </linearGradient>',\n      '</defs>',\n      '<path d=\"' + areaPath + '\" fill=\"url(#grad-' + color.replace(/[^a-z0-9]/gi, '') + ')\"></path>',\n      '<path d=\"' + linePath + '\" fill=\"none\" stroke=\"' + color + '\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path>',\n      '<circle cx=\"' + last[0].toFixed(2) + '\" cy=\"' + last[1].toFixed(2) + '\" r=\"3.3\" fill=\"' + color + '\" stroke=\"#09111a\" stroke-width=\"1.3\"></circle>'\n    ].join('');\n  };\n\n  const metricValueToNumber = (value) => {\n    if (value === null || value === undefined || value === '') return null;\n    if (typeof value === 'number') return Number.isFinite(value) ? value : null;\n\n    const raw = String(value).trim();\n    if (!raw) return null;\n\n    const normalized = raw.replace(/\\s+/g, ' ').replace(',', '.').toLowerCase();\n\n    const bps = normalized.match(/^(-?\\d+(?:\\.\\d+)?)\\s*([kmgt]?)(?:bit\\/s|bits\\/s|bps|b\\/s|ps|p\\/s)?$/i);\n    if (bps) {\n      const num = Number(bps[1]);\n      if (!Number.isFinite(num)) return null;\n      const unit = (bps[2] || '').toLowerCase();\n      const multiplier = unit === 't' ? 1e12\n        : unit === 'g' ? 1e9\n        : unit === 'm' ? 1e6\n        : unit === 'k' ? 1e3\n        : 1;\n      return num * multiplier;\n    }\n\n    const n = Number(raw);\n    return Number.isFinite(n) ? n : null;\n  };\n\n  const durationToMs = (value) => {\n    if (value === null || value === undefined || value === '') return null;\n    if (typeof value === 'number') {\n      if (!Number.isFinite(value)) return null;\n      return value < 10 ? value * 1000 : value;\n    }\n\n    const raw = String(value).trim().replace(',', '.').toLowerCase();\n    const m = raw.match(/^(-?\\d+(?:\\.\\d+)?)\\s*(µs|us|micro?s|ms|msec|s|sec|seg|seconds?)?$/i);\n    if (!m) return metricValueToNumber(value);\n\n    const n = Number(m[1]);\n    if (!Number.isFinite(n)) return null;\n\n    const unit = m[2] || '';\n    if (unit === 'µs' || unit === 'us' || /micro/.test(unit)) return n / 1000;\n    if (unit === 'ms' || unit === 'msec') return n;\n    if (unit === 's' || unit === 'sec' || unit === 'seg' || /second/.test(unit)) return n * 1000;\n\n    return n < 10 ? n * 1000 : n;\n  };\n\n  const getDisplayName = (series, field) => {\n    const names = [\n      field?.config?.displayNameFromDS,\n      field?.config?.displayName,\n      series?.name,\n      field?.name\n    ].filter(Boolean);\n\n    let name = names.find((n) => /Interface\\s+[^:]+:/i.test(String(n)));\n    if (!name) name = names.find((n) => /icmp|ping|bits received|bits sent|operational status|speed|packets with errors|packets discarded|interface type/i.test(String(n)));\n    if (!name) name = names[0] || '';\n\n    return String(name);\n  };\n\n  const getFullSearchText = (series, field, displayName) => {\n    return [\n      displayName,\n      series?.name,\n      field?.name,\n      field?.config?.displayNameFromDS,\n      field?.config?.displayName,\n      field?.labels ? JSON.stringify(field.labels) : '',\n      series?.labels ? JSON.stringify(series.labels) : ''\n    ].filter(Boolean).join(' ');\n  };\n\n  const cleanHostName = (host) => {\n    let h = String(host || '').trim();\n    h = h.replace(/^[\"']|[\"']$/g, '');\n    h = h.replace(/\\s+/g, ' ');\n    return h || 'Switch';\n  };\n\n  const hostFrom = (series, field, displayName, fullText) => {\n    const labelObjects = [field?.labels || {}, series?.labels || {}];\n    const labelKeys = ['host', 'hostname', 'host_name', 'hostName', 'zabbix_host', 'zbx_host'];\n\n    for (const labels of labelObjects) {\n      for (const key of labelKeys) {\n        if (labels && labels[key]) return cleanHostName(labels[key]);\n      }\n    }\n\n    const candidates = [\n      displayName,\n      series?.name,\n      field?.config?.displayNameFromDS,\n      field?.config?.displayName,\n      fullText\n    ].filter(Boolean).map(String);\n\n    for (const candidate of candidates) {\n      let m = candidate.match(/^([^:]+):\\s*Interface\\s+/i);\n      if (m) return cleanHostName(m[1]);\n\n      m = candidate.match(/^([^:]+):\\s*(?:ICMP|icmp|Ping|ping|Disponibilidade|disponibilidade)/i);\n      if (m) return cleanHostName(m[1]);\n    }\n\n    const jsonHost = String(fullText || '').match(/\"host(?:name|_name|Name)?\"\\s*:\\s*\"([^\"]+)\"/i);\n    if (jsonHost) return cleanHostName(jsonHost[1]);\n\n    return 'Switch';\n  };\n\n  const metricFrom = (text) => {\n    const t = normalizeText(text);\n\n    // ICMP do Zabbix.\n    if (/(^|\\b)(icmp response time|icmppingsec|icmp ping time|icmp.*tempo|tempo.*icmp|latencia icmp|icmp latency)(\\b|$)/.test(t)\n        && !/loss|perda/.test(t)) {\n      return 'icmpLatency';\n    }\n\n    if (/(^|\\b)(icmp loss|icmppingloss|icmp ping loss|icmp.*perda|perda.*icmp|packet loss|ping loss)(\\b|$)/.test(t)) {\n      return 'icmpLoss';\n    }\n\n    if (/(^|\\b)(icmp ping|icmpping|ping status|status ping|ping availability|disponibilidade icmp)(\\b|$)/.test(t)\n        && !/response|resposta|time|tempo|loss|perda|latency|latencia|icmppingsec|icmppingloss/.test(t)) {\n      return 'switchStatus';\n    }\n\n    // Métricas específicas primeiro.\n    // Isso evita que \"Interface g1(...): Inbound packets with errors\" seja classificado\n    // incorretamente como bitsReceived quando o fullText também contém algum \"Bits received\".\n    if (/inbound packets with errors|inbound error|in errors|ifinerrors|ifinerror|inerrors|inerror|inerros|inerro|rx errors|errors rx|receive errors|received errors|rx error packets|erros rx|erros de rx|erros entrada|erros in|entrada.*erro|crc errors rx|crc.*rx|rx.*crc/.test(t)) return 'inErrors';\n    if (/outbound packets with errors|outbound error|out errors|ifouterrors|ifouterror|outerrors|outerror|outerros|outerro|tx errors|errors tx|transmit errors|transmitted errors|tx error packets|erros tx|erros de tx|erros saida|erros out|saida.*erro|crc errors tx|crc.*tx|tx.*crc/.test(t)) return 'outErrors';\n\n    if (/inbound packets discarded|inbound discard|in discards|ifindiscards|ifindiscard|indiscards|indiscard|rx discards|discarded rx|receive discards|received discards|rx dropped|drop.*rx|descartes in|descartes rx|entrada.*descart/.test(t)) return 'inDiscards';\n    if (/outbound packets discarded|outbound discard|out discards|ifoutdiscards|ifoutdiscard|outdiscards|outdiscard|tx discards|discarded tx|transmit discards|transmitted discards|tx dropped|drop.*tx|descartes out|descartes tx|saida.*descart/.test(t)) return 'outDiscards';\n\n    if (/operational status|ifoperstatus|status operacional|net\\.if\\.status/.test(t)) return 'operStatus';\n    if (/interface type|iftype|tipo.*interface/.test(t)) return 'interfaceType';\n    if (/speed|ifspeed|ifhighspeed|velocidade/.test(t)) return 'speed';\n\n    // Tráfego por último, porque é mais genérico.\n    if (/bits received|incoming traffic|inbound traffic|download|entrada|net\\.if\\.in|ifhcin|ifinoctets/.test(t)) return 'bitsReceived';\n    if (/bits sent|outgoing traffic|outbound traffic|upload|saida|net\\.if\\.out|ifhcout|ifoutoctets/.test(t)) return 'bitsSent';\n\n    return null;\n  };\n\n  const cleanPortName = (value) => {\n    let p = String(value || '').trim();\n    p = p.replace(/^[\"']|[\"']$/g, '');\n    p = p.replace(/\\s+/g, ' ');\n    p = p.replace(/^(port|porta)\\s+/i, '');\n    p = p.replace(/\\(\\)\\s*$/g, '');\n    p = p.replace(/^crc\\s*errors?\\s*(rx|tx)?\\s*(on\\s*)?/i, '');\n    p = p.replace(/^(?:if)?in(?:errors?|erros?|discards?)?/i, '');\n    p = p.replace(/^(?:if)?out(?:errors?|erros?|discards?)?/i, '');\n    p = p.replace(/^if(In|Out|HC|Oper|High|Type|Speed|Errors?|Discards?)/i, '');\n    p = p.replace(/^tErrors/i, '');\n    p = p.trim();\n    return p || 'Interface';\n  };\n\n  const normalizePortKey = (value) => {\n    let p = normalizeText(cleanPortName(value));\n    p = p.replace(/\\(.*?\\)/g, '');\n    p = p.replace(/^(fastethernet|gigabitethernet|tengigabitethernet|ethernet|eth|fa|gi|te|ge|g|xg)\\s*/i, '');\n    p = p.replace(/[^a-z0-9\\/]+/g, '');\n\n    if (/^trk/.test(p)) return p;\n\n    const nums = p.match(/\\d+/g);\n    if (nums && nums.length) return String(Number(nums[nums.length - 1]));\n\n    return p || 'unknown';\n  };\n\n  const getMonitoredPortForHost = (host) => {\n    const defaultPort = String(cfg.monitoredPort || '1');\n    const map = cfg.monitoredPortByHost || {};\n\n    const hostName = String(host || '').trim();\n    const normalizedHost = normalizeText(hostName);\n\n    for (const [hostPattern, port] of Object.entries(map)) {\n      const pattern = String(hostPattern || '').trim();\n      if (!pattern) continue;\n\n      // Match exato, ignorando maiúsculas/minúsculas e acentos.\n      if (normalizeText(pattern) === normalizedHost) {\n        return String(port);\n      }\n\n      // Match por regex. Ex.: \"/DELL PowerConnect/\" => \"2\".\n      if (pattern.startsWith('/') && pattern.endsWith('/')) {\n        try {\n          const regex = new RegExp(pattern.slice(1, -1), 'i');\n          if (regex.test(hostName)) {\n            return String(port);\n          }\n        } catch (error) {\n          // Regex inválido: ignora e segue para a próxima regra.\n        }\n      }\n\n      // Match parcial simples. Ex.: \"DELL PowerConnect\" casa com \"Switch DELL PowerConnect 2848\".\n      if (!pattern.startsWith('/') && !pattern.endsWith('/') && normalizedHost.includes(normalizeText(pattern))) {\n        return String(port);\n      }\n    }\n\n    return defaultPort;\n  };\n\n  const isMonitoredPort = (portKey, portLabel, wantedPort) => {\n    const monitoredPortKey = normalizePortKey(wantedPort || cfg.monitoredPort || '1');\n\n    if (String(portKey) === String(monitoredPortKey)) return true;\n    return normalizePortKey(portLabel) === String(monitoredPortKey);\n  };\n\n  const portFrom = (displayName, fullText) => {\n    const preferred = String(displayName || '');\n    const full = String(fullText || '');\n\n    let m;\n\n    m = preferred.match(/Interface\\s+([^:]+):/i);\n    if (m) return cleanPortName(m[1]);\n\n    m = full.match(/Interface\\s+([^:]+):/i);\n    if (m) return cleanPortName(m[1]);\n\n    m = preferred.match(/\\b(?:if)?in(?:errors?|erros?)\\s*((?:Fa|Gi|Ge|Te|Eth|Ethernet|FastEthernet|GigabitEthernet|TenGigabitEthernet|g|xg)?\\s*\\d+(?:\\/\\d+)*)\\b/i);\n    if (m) return cleanPortName(m[1]);\n\n    m = full.match(/\\b(?:if)?in(?:errors?|erros?)\\s*((?:Fa|Gi|Ge|Te|Eth|Ethernet|FastEthernet|GigabitEthernet|TenGigabitEthernet|g|xg)?\\s*\\d+(?:\\/\\d+)*)\\b/i);\n    if (m) return cleanPortName(m[1]);\n\n    m = preferred.match(/\\b(?:if)?out(?:errors?|erros?)\\s*((?:Fa|Gi|Ge|Te|Eth|Ethernet|FastEthernet|GigabitEthernet|TenGigabitEthernet|g|xg)?\\s*\\d+(?:\\/\\d+)*)\\b/i);\n    if (m) return cleanPortName(m[1]);\n\n    m = full.match(/\\b(?:if)?out(?:errors?|erros?)\\s*((?:Fa|Gi|Ge|Te|Eth|Ethernet|FastEthernet|GigabitEthernet|TenGigabitEthernet|g|xg)?\\s*\\d+(?:\\/\\d+)*)\\b/i);\n    if (m) return cleanPortName(m[1]);\n\n    m = preferred.match(/\\b(?:if)?in(?:discards?)\\s*((?:Fa|Gi|Ge|Te|Eth|Ethernet|FastEthernet|GigabitEthernet|TenGigabitEthernet|g|xg)?\\s*\\d+(?:\\/\\d+)*)\\b/i);\n    if (m) return cleanPortName(m[1]);\n\n    m = full.match(/\\b(?:if)?in(?:discards?)\\s*((?:Fa|Gi|Ge|Te|Eth|Ethernet|FastEthernet|GigabitEthernet|TenGigabitEthernet|g|xg)?\\s*\\d+(?:\\/\\d+)*)\\b/i);\n    if (m) return cleanPortName(m[1]);\n\n    m = preferred.match(/\\b(?:if)?out(?:discards?)\\s*((?:Fa|Gi|Ge|Te|Eth|Ethernet|FastEthernet|GigabitEthernet|TenGigabitEthernet|g|xg)?\\s*\\d+(?:\\/\\d+)*)\\b/i);\n    if (m) return cleanPortName(m[1]);\n\n    m = full.match(/\\b(?:if)?out(?:discards?)\\s*((?:Fa|Gi|Ge|Te|Eth|Ethernet|FastEthernet|GigabitEthernet|TenGigabitEthernet|g|xg)?\\s*\\d+(?:\\/\\d+)*)\\b/i);\n    if (m) return cleanPortName(m[1]);\n\n    m = preferred.match(/\\bon\\s+port\\s+([A-Za-z0-9\\/\\.\\-_]+)\\b/i);\n    if (m) return cleanPortName(m[1]);\n\n    m = full.match(/\\bon\\s+port\\s+([A-Za-z0-9\\/\\.\\-_]+)\\b/i);\n    if (m) return cleanPortName(m[1]);\n\n    m = preferred.match(/(?:^|[\\s:\\[,])((?:TRK|Trk|Gi|Ge|GigabitEthernet|Te|TenGigabitEthernet|Eth|Ethernet|Fa|FastEthernet|Porta?|Port|g|xg)\\s*[-\\w\\/\\.\\(\\)]+)/i);\n    if (m) return cleanPortName(m[1]);\n\n    m = full.match(/(?:^|[\\s:\\[,])((?:TRK|Trk|Gi|Ge|GigabitEthernet|Te|TenGigabitEthernet|Eth|Ethernet|Fa|FastEthernet|Porta?|Port|g|xg)\\s*[-\\w\\/\\.\\(\\)]+)/i);\n    if (m) return cleanPortName(m[1]);\n\n    return null;\n  };\n\n  const statusInfo = (value) => {\n    if (value === null || value === undefined || value === '') {\n      return { label: 'Sem dado', className: 'unknown', rank: 2 };\n    }\n\n    const n = metricValueToNumber(value);\n    if (Number.isFinite(n)) {\n      if (n === 1) return { label: 'UP', className: 'up', rank: 0 };\n      if (n === 2) return { label: 'DOWN', className: 'down', rank: 4 };\n      if (n === 3) return { label: 'Testing', className: 'warn', rank: 1 };\n      if (n === 4) return { label: 'Unknown', className: 'unknown', rank: 2 };\n      if (n === 5) return { label: 'Dormant', className: 'warn', rank: 1 };\n      if (n === 6) return { label: 'Not present', className: 'down', rank: 4 };\n      if (n === 7) return { label: 'Lower layer down', className: 'down', rank: 4 };\n    }\n\n    const text = String(value).toLowerCase();\n    if (/^1$|\\bup\\b|online|ok|ativo|established/.test(text)) return { label: 'UP', className: 'up', rank: 0 };\n    if (/^2$|\\bdown\\b|offline|falha|inativo/.test(text)) return { label: 'DOWN', className: 'down', rank: 4 };\n    if (/^3$|testing/.test(text)) return { label: 'Testing', className: 'warn', rank: 1 };\n    if (/^4$|unknown/.test(text)) return { label: 'Unknown', className: 'unknown', rank: 2 };\n    if (/^5$|dormant/.test(text)) return { label: 'Dormant', className: 'warn', rank: 1 };\n    if (/^6$|not\\s*present/.test(text)) return { label: 'Not present', className: 'down', rank: 4 };\n    if (/^7$|lower\\s*layer\\s*down/.test(text)) return { label: 'Lower layer down', className: 'down', rank: 4 };\n    return { label: String(value), className: 'unknown', rank: 2 };\n  };\n\n  const switchIcmpStatusInfo = (value) => {\n    if (value === null || value === undefined || value === '') {\n      return { label: 'Sem dado', className: 'unknown', rank: 2 };\n    }\n\n    const n = metricValueToNumber(value);\n    if (Number.isFinite(n)) {\n      if (n >= 1) return { label: 'ONLINE', className: 'up', rank: 0 };\n      if (n === 0) return { label: 'OFFLINE', className: 'down', rank: 4 };\n    }\n\n    const text = String(value).toLowerCase();\n    if (/online|up|ok|ativo|available|disponivel|true/.test(text)) return { label: 'ONLINE', className: 'up', rank: 0 };\n    if (/offline|down|falha|inativo|unavailable|indisponivel|false/.test(text)) return { label: 'OFFLINE', className: 'down', rank: 4 };\n\n    return { label: String(value), className: 'unknown', rank: 2 };\n  };\n\n  const formatBps = (value) => {\n    const n = metricValueToNumber(value);\n    if (!Number.isFinite(n)) return '—';\n    const abs = Math.abs(n);\n    if (abs >= 1000000000) return (n / 1000000000).toFixed(2) + ' Gbps';\n    if (abs >= 1000000) return (n / 1000000).toFixed(2) + ' Mbps';\n    if (abs >= 1000) return (n / 1000).toFixed(1) + ' Kbps';\n    return n.toFixed(0) + ' bps';\n  };\n\n  const formatCounter = (value) => {\n    const n = metricValueToNumber(value);\n    if (!Number.isFinite(n)) return '—';\n    if (n >= 1000000) return (n / 1000000).toFixed(1) + 'M';\n    if (n >= 1000) return (n / 1000).toFixed(1) + 'K';\n    return String(Math.round(n));\n  };\n\n  const formatLatency = (value) => {\n    const ms = durationToMs(value);\n    if (!Number.isFinite(ms)) return '—';\n    if (ms < 1) return (ms * 1000).toFixed(0) + ' µs';\n    if (ms < 1000) return ms.toFixed(ms >= 10 ? 0 : 1) + ' ms';\n    return (ms / 1000).toFixed(2) + ' s';\n  };\n\n  const percentValueToNumber = (value) => {\n    if (value === null || value === undefined || value === '') return null;\n    if (typeof value === 'number') return Number.isFinite(value) ? value : null;\n\n    const raw = String(value).trim().replace(',', '.').toLowerCase();\n    const m = raw.match(/^(-?\\d+(?:\\.\\d+)?)\\s*%?$/);\n    if (!m) return metricValueToNumber(value);\n\n    const n = Number(m[1]);\n    return Number.isFinite(n) ? n : null;\n  };\n\n  const formatPercent = (value) => {\n    const n = percentValueToNumber(value);\n    if (!Number.isFinite(n)) return '—';\n    return n.toFixed(n >= 10 ? 0 : 1) + '%';\n  };\n\n  const formatIcmp = (latency, loss) => {\n    const latencyMs = durationToMs(latency);\n    if (Number.isFinite(latencyMs)) return formatLatency(latency);\n\n    const lossPct = percentValueToNumber(loss);\n    if (Number.isFinite(lossPct)) return formatPercent(loss) + ' loss';\n\n    return '—';\n  };\n\n  const setMetric = (target, metric, valueRaw, ts, preferMax) => {\n    if (!target.metricUpdatedAt) target.metricUpdatedAt = {};\n    const parsed = metricValueToNumber(valueRaw);\n    const value = parsed !== null ? parsed : valueRaw;\n\n    const currentTs = target.metricUpdatedAt[metric] || 0;\n    const currentValue = metricValueToNumber(target[metric]);\n    const incomingValue = metricValueToNumber(value);\n\n    let shouldReplace = target[metric] === null || target[metric] === undefined || ts > currentTs;\n\n    if (!shouldReplace && ts === currentTs && preferMax && Number.isFinite(incomingValue) && Number.isFinite(currentValue)) {\n      shouldReplace = Math.abs(incomingValue) > Math.abs(currentValue);\n    }\n\n    if (shouldReplace) {\n      target[metric] = value;\n      target.metricUpdatedAt[metric] = ts;\n    }\n  };\n\n  const devices = new Map();\n  const totalRxHistory = new Map();\n  const totalTxHistory = new Map();\n  const calcRxHistory = new Map();\n  const calcTxHistory = new Map();\n  const debugLines = [];\n\n  const getDevice = (host) => {\n    const key = host || 'Switch';\n    if (!devices.has(key)) {\n      devices.set(key, {\n        host: key,\n        switchStatus: null,\n        icmpLatency: null,\n        icmpLoss: null,\n        updatedAt: null,\n        metricUpdatedAt: {},\n        ports: new Map(),\n        raw: []\n      });\n    }\n    return devices.get(key);\n  };\n\n  const getPort = (device, portLabel) => {\n    const key = normalizePortKey(portLabel);\n    if (!device.ports.has(key)) {\n      device.ports.set(key, {\n        key,\n        label: cleanPortName(portLabel),\n        bitsReceived: null,\n        bitsSent: null,\n        inErrors: null,\n        outErrors: null,\n        inDiscards: null,\n        outDiscards: null,\n        operStatus: null,\n        speed: null,\n        updatedAt: null,\n        metricUpdatedAt: {},\n        raw: []\n      });\n    }\n\n    const port = device.ports.get(key);\n    const cleanLabel = cleanPortName(portLabel);\n    if (cleanLabel && cleanLabel !== 'Interface' && port.label === key) {\n      port.label = cleanLabel;\n    }\n    return port;\n  };\n\n  (panelData.series || []).forEach((series) => {\n    (series.fields || []).forEach((field) => {\n      if (field.type === 'time' || /time/i.test(field.name || '')) return;\n\n      const valueRaw = lastNonEmpty(field);\n      if (valueRaw === null) return;\n\n      const displayName = getDisplayName(series, field);\n      const fullText = getFullSearchText(series, field, displayName);\n      const normalizedFullText = normalizeText(fullText);\n      const timeField = getTimeField(series);\n\n      // Itens calculados do Zabbix: Traffic LAN.\n      // A query B deve retornar os itens:\n      // - RX - Tráfego total dos switchs\n      // - TX - Tráfego total dos switchs\n      if (/rx\\s*-\\s*trafego total dos switchs|rx\\s*-\\s*trafego total dos switches|rx.*trafego total/.test(normalizedFullText)) {\n        addSeriesToHistory(calcRxHistory, timeField, field);\n        debugLines.push('[OK TOTAL RX ZABBIX] ' + displayName + ' = ' + valueRaw);\n        return;\n      }\n\n      if (/tx\\s*-\\s*trafego total dos switchs|tx\\s*-\\s*trafego total dos switches|tx.*trafego total/.test(normalizedFullText)) {\n        addSeriesToHistory(calcTxHistory, timeField, field);\n        debugLines.push('[OK TOTAL TX ZABBIX] ' + displayName + ' = ' + valueRaw);\n        return;\n      }\n\n      const metric = metricFrom(displayName) || metricFrom(fullText);\n\n      if (!metric) {\n        debugLines.push('[IGNORADO] ' + displayName);\n        return;\n      }\n\n      // Fallback: se a query B não trouxer os itens calculados,\n      // os mini gráficos ainda usam a soma das séries de tráfego da query A.\n      if (metric === 'bitsReceived') addSeriesToHistory(totalRxHistory, timeField, field);\n      if (metric === 'bitsSent') addSeriesToHistory(totalTxHistory, timeField, field);\n\n      const host = hostFrom(series, field, displayName, fullText);\n      const device = getDevice(host);\n      const ts = lastTime(series) || 0;\n      device.updatedAt = Math.max(device.updatedAt || 0, ts);\n\n      if (metric === 'switchStatus' || metric === 'icmpLatency' || metric === 'icmpLoss') {\n        setMetric(device, metric, valueRaw, ts, false);\n        debugLines.push('[OK SWITCH] ' + host + ' | ' + metric + ' | ' + displayName + ' = ' + valueRaw);\n        return;\n      }\n\n      const portLabel = portFrom(displayName, fullText);\n      if (!portLabel) {\n        debugLines.push('[SEM PORTA] ' + host + ' | ' + displayName + ' => ' + metric);\n        return;\n      }\n\n      const port = getPort(device, portLabel);\n      const preferMax = metric === 'bitsReceived' || metric === 'bitsSent' || metric === 'inErrors' || metric === 'outErrors' || metric === 'inDiscards' || metric === 'outDiscards';\n\n      setMetric(port, metric, valueRaw, ts, preferMax);\n      port.updatedAt = Math.max(port.updatedAt || 0, ts);\n      port.raw.push({ metric, text: displayName, value: valueRaw });\n      device.raw.push({ port: port.label, metric, text: displayName, value: valueRaw });\n\n      debugLines.push('[OK PORTA] ' + host + ' | ' + port.label + ' [' + port.key + '] | ' + metric + ' | ' + displayName + ' = ' + valueRaw);\n    });\n  });\n\n  const rows = Array.from(devices.values()).map((device) => {\n    let totalRx = 0;\n    let totalTx = 0;\n\n    device.ports.forEach((port) => {\n      const rx = metricValueToNumber(port.bitsReceived);\n      const tx = metricValueToNumber(port.bitsSent);\n      if (Number.isFinite(rx)) totalRx += rx;\n      if (Number.isFinite(tx)) totalTx += tx;\n    });\n\n    const wantedPort = getMonitoredPortForHost(device.host);\n\n    const port1 = Array.from(device.ports.values())\n      .find((port) => isMonitoredPort(port.key, port.label, wantedPort)) || null;\n\n    const switchStatus = switchIcmpStatusInfo(device.switchStatus);\n    const portStatus = port1 ? statusInfo(port1.operStatus) : { label: 'Sem dado', className: 'unknown', rank: 2 };\n\n    const inErrors = port1 ? (metricValueToNumber(port1.inErrors) || 0) : 0;\n    const outErrors = port1 ? (metricValueToNumber(port1.outErrors) || 0) : 0;\n    const inDiscards = port1 ? (metricValueToNumber(port1.inDiscards) || 0) : 0;\n    const outDiscards = port1 ? (metricValueToNumber(port1.outDiscards) || 0) : 0;\n\n    const hasErrors = inErrors > 0 || outErrors > 0;\n    const hasDiscards = inDiscards > 0 || outDiscards > 0;\n    const portProblem = !port1 || portStatus.className !== 'up' || hasErrors || hasDiscards;\n\n    return {\n      host: device.host,\n      wantedPort,\n      switchStatus,\n      icmpLatency: device.icmpLatency,\n      icmpLoss: device.icmpLoss,\n      totalRx,\n      totalTx,\n      port1Label: port1 ? port1.label : 'Porta ' + wantedPort,\n      portStatus,\n      port1Download: port1 ? port1.bitsReceived : null,\n      port1Upload: port1 ? port1.bitsSent : null,\n      inErrors: port1 ? port1.inErrors : null,\n      outErrors: port1 ? port1.outErrors : null,\n      inDiscards: port1 ? port1.inDiscards : null,\n      outDiscards: port1 ? port1.outDiscards : null,\n      updatedAt: Math.max(device.updatedAt || 0, port1?.updatedAt || 0),\n      hasErrors,\n      hasDiscards,\n      portProblem,\n      raw: device.raw\n    };\n  }).sort((a, b) => String(a.host).localeCompare(String(b.host), 'pt-BR'));\n\n  if (debugEl) {\n    const header = [\n      'Total de séries recebidas: ' + ((panelData.series || []).length),\n      'Switches identificados: ' + rows.length,\n      'Porta padrão: ' + (cfg.monitoredPort || '1'),\n      'Mapa por host: ' + JSON.stringify(cfg.monitoredPortByHost || {}),\n      'Query do painel: Item = /.*/',\n      ''\n    ];\n    debugEl.textContent = header.concat(debugLines.slice(0, 500)).join('\\n');\n  }\n\n  const onlineCount = rows.filter((r) => r.switchStatus.className === 'up').length;\n  const offlineCount = rows.filter((r) => r.switchStatus.className === 'down').length;\n  const port1ProblemCount = rows.filter((r) => r.portProblem).length;\n  const totalTraffic = rows.reduce((sum, r) => sum + (metricValueToNumber(r.totalRx) || 0) + (metricValueToNumber(r.totalTx) || 0), 0);\n\n  // Usa os itens calculados do Zabbix quando estiverem disponíveis.\n  // Se a query B não retornar nada, usa a soma antiga feita pelo JavaScript como fallback.\n  const rxSourceMap = calcRxHistory.size ? calcRxHistory : totalRxHistory;\n  const txSourceMap = calcTxHistory.size ? calcTxHistory : totalTxHistory;\n\n  const rxHistoryPoints = downsamplePoints(historyToPoints(rxSourceMap), 64);\n  const txHistoryPoints = downsamplePoints(historyToPoints(txSourceMap), 64);\n\n  const latestRxHistory = rxHistoryPoints.length\n    ? rxHistoryPoints[rxHistoryPoints.length - 1].value\n    : rows.reduce((sum, r) => sum + (metricValueToNumber(r.totalRx) || 0), 0);\n\n  const latestTxHistory = txHistoryPoints.length\n    ? txHistoryPoints[txHistoryPoints.length - 1].value\n    : rows.reduce((sum, r) => sum + (metricValueToNumber(r.totalTx) || 0), 0);\n\n  const trafficForKpi = latestRxHistory + latestTxHistory;\n\n  if (titleEl) titleEl.textContent = cfg.title;\n  if (subtitleEl) subtitleEl.textContent = cfg.subtitle;\n  if (updatedEl) updatedEl.textContent = 'Atualizado: ' + new Date().toLocaleString('pt-BR');\n  if (kpiTotalEl) kpiTotalEl.textContent = rows.length;\n  if (kpiOnlineEl) kpiOnlineEl.textContent = onlineCount;\n  if (kpiOfflineEl) kpiOfflineEl.textContent = offlineCount;\n  if (kpiPort1ProblemsEl) kpiPort1ProblemsEl.textContent = port1ProblemCount;\n  if (kpiTotalTrafficEl) kpiTotalTrafficEl.textContent = formatBps(trafficForKpi);\n\n  if (miniRxValueEl) miniRxValueEl.textContent = formatBps(latestRxHistory);\n  if (miniTxValueEl) miniTxValueEl.textContent = formatBps(latestTxHistory);\n\n  renderSparkline(miniRxSvgEl, rxHistoryPoints, '#22c55e');\n  renderSparkline(miniTxSvgEl, txHistoryPoints, '#a78bfa');\n\n  function compareRows(a, b, key) {\n    const dir = state.sortDir === 'desc' ? -1 : 1;\n    const val = (row) => {\n      if (key === 'host') return row.host;\n      if (key === 'switchStatus') return row.switchStatus.rank;\n      if (key === 'icmp') return durationToMs(row.icmpLatency) ?? percentValueToNumber(row.icmpLoss) ?? -1;\n      if (key === 'totalRx') return row.totalRx ?? -1;\n      if (key === 'totalTx') return row.totalTx ?? -1;\n      if (key === 'port1') return row.port1Label || '';\n      if (key === 'portStatus') return row.portStatus.rank;\n      if (key === 'download') return metricValueToNumber(row.port1Download) ?? -1;\n      if (key === 'upload') return metricValueToNumber(row.port1Upload) ?? -1;\n      if (key === 'inErrors') return metricValueToNumber(row.inErrors) ?? -1;\n      if (key === 'outErrors') return metricValueToNumber(row.outErrors) ?? -1;\n      if (key === 'inDiscards') return metricValueToNumber(row.inDiscards) ?? -1;\n      if (key === 'outDiscards') return metricValueToNumber(row.outDiscards) ?? -1;\n      if (key === 'updatedAt') return row.updatedAt ?? 0;\n      return row.host || '';\n    };\n\n    const av = val(a);\n    const bv = val(b);\n    if (typeof av === 'number' && typeof bv === 'number') {\n      const numeric = (av - bv) * dir;\n      if (numeric !== 0) return numeric;\n      return String(a.host).localeCompare(String(b.host), 'pt-BR');\n    }\n\n    return String(av).localeCompare(String(bv), 'pt-BR') * dir;\n  }\n\n  const counterClass = (value, threshold) => {\n    const n = metricValueToNumber(value);\n    if (!Number.isFinite(n)) return 'unknown';\n    return n >= Number(threshold) ? 'warn' : 'ok';\n  };\n\n  function renderTable() {\n    const term = normalizeText(state.search || '');\n\n    const filtered = rows\n      .filter((row) => {\n        if (state.filter === 'online' && row.switchStatus.className !== 'up') return false;\n        if (state.filter === 'offline' && row.switchStatus.className !== 'down') return false;\n        if (state.filter === 'portdown' && row.portStatus.className === 'up') return false;\n        if (state.filter === 'errors' && !row.hasErrors) return false;\n        if (state.filter === 'discards' && !row.hasDiscards) return false;\n        if (state.filter === 'problems' && !(row.switchStatus.className === 'down' || row.portProblem)) return false;\n\n        if (!term) return true;\n\n        const haystack = normalizeText([\n          row.host,\n          row.switchStatus.label,\n          formatIcmp(row.icmpLatency, row.icmpLoss),\n          row.port1Label,\n          row.portStatus.label,\n          formatBps(row.totalRx),\n          formatBps(row.totalTx),\n          formatBps(row.port1Download),\n          formatBps(row.port1Upload),\n          formatCounter(row.inErrors),\n          formatCounter(row.outErrors),\n          formatCounter(row.inDiscards),\n          formatCounter(row.outDiscards)\n        ].join(' '));\n\n        return haystack.includes(term);\n      })\n      .sort((a, b) => compareRows(a, b, state.sortKey));\n\n    if (rowCountEl) rowCountEl.textContent = filtered.length + (filtered.length === 1 ? ' linha' : ' linhas');\n\n    if (!filtered.length) {\n      rowsEl.innerHTML = '';\n      emptyEl.style.display = 'flex';\n      return;\n    }\n\n    emptyEl.style.display = 'none';\n\n    rowsEl.innerHTML = filtered.map((row) => {\n      const age = row.updatedAt ? new Date(row.updatedAt).toLocaleString('pt-BR') : '—';\n      const rawTitle = safeText(row.raw.map((r) => r.port + ' | ' + r.metric + ': ' + r.text + ' = ' + r.value).join('\\n'));\n\n      const inErrClass = counterClass(row.inErrors, cfg.errorWarnCount);\n      const outErrClass = counterClass(row.outErrors, cfg.errorWarnCount);\n      const inDiscClass = counterClass(row.inDiscards, cfg.discardWarnCount);\n      const outDiscClass = counterClass(row.outDiscards, cfg.discardWarnCount);\n\n      return `\n        <tr title=\"${rawTitle}\">\n          <td class=\"host-cell-main\">${safeText(row.host)}<span class=\"subtext\">Switch</span></td>\n          <td class=\"status-cell ${row.switchStatus.className}\">${safeText(row.switchStatus.label)}</td>\n          <td class=\"icmp-cell\">${safeText(formatIcmp(row.icmpLatency, row.icmpLoss))}</td>\n          <td class=\"traffic-cell\">\n            <div class=\"traffic-value\"><strong>${safeText(formatBps(row.totalRx))}</strong><span>Total RX</span></div>\n            <div class=\"meter\"><i class=\"download\" style=\"width:${Math.min(100, (row.totalRx / 1000000000) * 100)}%\"></i></div>\n          </td>\n          <td class=\"traffic-cell\">\n            <div class=\"traffic-value\"><strong>${safeText(formatBps(row.totalTx))}</strong><span>Total TX</span></div>\n            <div class=\"meter\"><i class=\"upload\" style=\"width:${Math.min(100, (row.totalTx / 1000000000) * 100)}%\"></i></div>\n          </td>\n          <td class=\"port-cell-main\">${safeText(row.port1Label)}<span class=\"subtext\">alvo: ${safeText(row.wantedPort)}</span></td>\n          <td class=\"status-cell ${row.portStatus.className}\">${safeText(row.portStatus.label)}</td>\n          <td class=\"traffic-cell\">\n            <div class=\"traffic-value\"><strong>${safeText(formatBps(row.port1Download))}</strong><span>P1 RX</span></div>\n            <div class=\"meter\"><i class=\"download\" style=\"width:${Math.min(100, ((metricValueToNumber(row.port1Download) || 0) / 1000000000) * 100)}%\"></i></div>\n          </td>\n          <td class=\"traffic-cell\">\n            <div class=\"traffic-value\"><strong>${safeText(formatBps(row.port1Upload))}</strong><span>P1 TX</span></div>\n            <div class=\"meter\"><i class=\"upload\" style=\"width:${Math.min(100, ((metricValueToNumber(row.port1Upload) || 0) / 1000000000) * 100)}%\"></i></div>\n          </td>\n          <td class=\"counter-cell ${inErrClass}\">${safeText(formatCounter(row.inErrors))}</td>\n          <td class=\"counter-cell ${outErrClass}\">${safeText(formatCounter(row.outErrors))}</td>\n          <td class=\"counter-cell ${inDiscClass}\">${safeText(formatCounter(row.inDiscards))}</td>\n          <td class=\"counter-cell ${outDiscClass}\">${safeText(formatCounter(row.outDiscards))}</td>\n          <td>${safeText(age)}</td>\n        </tr>`;\n    }).join('');\n  }\n\n  if (!root.dataset.bound) {\n    if (searchEl) {\n      searchEl.addEventListener('input', (event) => {\n        state.search = event.target.value || '';\n        renderTable();\n      });\n    }\n\n    htmlNode.querySelectorAll('.filter-chip').forEach((button) => {\n      button.addEventListener('click', () => {\n        state.filter = button.dataset.filter || 'all';\n        htmlNode.querySelectorAll('.filter-chip').forEach((b) => b.classList.toggle('active', b === button));\n        renderTable();\n      });\n    });\n\n    htmlNode.querySelectorAll('th[data-sort]').forEach((th) => {\n      th.addEventListener('click', () => {\n        const key = th.dataset.sort || 'host';\n        if (state.sortKey === key) state.sortDir = state.sortDir === 'asc' ? 'desc' : 'asc';\n        else {\n          state.sortKey = key;\n          state.sortDir = key === 'host' ? 'asc' : 'desc';\n        }\n        renderTable();\n      });\n    });\n\n    root.dataset.bound = '1';\n  }\n\n  if (searchEl && searchEl.value !== state.search) searchEl.value = state.search;\n  htmlNode.querySelectorAll('.filter-chip').forEach((b) => b.classList.toggle('active', (b.dataset.filter || 'all') === state.filter));\n\n  renderTable();\n})();",
+        "overflow": "auto",
+        "panelupdateOnMount": true,
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "renderOnMount": true,
+        "rootCSS": "",
+        "useGrafanaScrollbar": true
+      },
+      "pluginVersion": "2.1.1",
+      "targets": [
+        {
+          "application": {
+            "filter": "$zbx_application"
+          },
+          "countTriggersBy": "",
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "${DS_ALEXANDERZOBNIN-ZABBIX-DATASOURCE}"
+          },
+          "evaltype": "0",
+          "functions": [],
+          "group": {
+            "filter": "$zbx_group"
+          },
+          "hide": false,
+          "host": {
+            "filter": "$zbx_host"
+          },
+          "item": {
+            "filter": "/.*(ICMP ping|ICMP response time|ICMP loss|icmpping|icmppingsec|icmppingloss|Bits received|Bits sent|Operational status|Inbound packets discarded|Outbound packets discarded|Inbound packets with errors|Outbound packets with errors|ifOperStatus|ifInErrors|ifOutErrors|ifInDiscards|ifOutDiscards).*/"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "macro": {
+            "filter": ""
+          },
+          "options": {
+            "count": true,
+            "disableDataAlignment": false,
+            "minSeverity": 3,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useTrends": "default",
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "schema": 12,
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "textFilter": "",
+          "trigger": {
+            "filter": ""
+          },
+          "triggers": {
+            "acknowledged": 2
+          }
+        },
+        {
+          "application": {
+            "filter": ""
+          },
+          "countTriggersBy": "",
+          "datasource": {
+            "type": "alexanderzobnin-zabbix-datasource",
+            "uid": "${DS_ALEXANDERZOBNIN-ZABBIX-DATASOURCE}"
+          },
+          "evaltype": "0",
+          "functions": [],
+          "group": {
+            "filter": "SERVIDOR"
+          },
+          "hide": false,
+          "host": {
+            "filter": "Traffic LAN"
+          },
+          "item": {
+            "filter": "/.*(RX - Tráfego total dos switchs|TX - Tráfego total dos switchs).*/"
+          },
+          "itemTag": {
+            "filter": ""
+          },
+          "macro": {
+            "filter": ""
+          },
+          "options": {
+            "count": false,
+            "disableDataAlignment": false,
+            "showDisabledItems": false,
+            "skipEmptyValues": false,
+            "useTrends": "default",
+            "useZabbixValueMapping": false
+          },
+          "proxy": {
+            "filter": ""
+          },
+          "queryType": "0",
+          "refId": "B",
+          "resultFormat": "time_series",
+          "schema": 12,
+          "table": {
+            "skipEmptyValues": false
+          },
+          "tags": {
+            "filter": ""
+          },
+          "textFilter": "",
+          "trigger": {
+            "filter": ""
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "gapit-htmlgraphics-panel"
+    }
+  ],
+  "refresh": "1m",
+  "schemaVersion": 39,
+  "tags": [
+    "zabbix",
+    "switch",
+    "icmp",
+    "porta-monitorada",
+    "html-graphics",
+    "Marcus",
+    "Ronney"
+  ],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "switch",
+          "value": "switch"
+        },
+        "description": "Grupo de hosts onde está o switch no Zabbix.",
+        "hide": 0,
+        "label": "Grupo Zabbix",
+        "name": "zbx_group",
+        "options": [
+          {
+            "selected": true,
+            "text": "switch",
+            "value": "switch"
+          }
+        ],
+        "query": "switch",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "type": "alexanderzobnin-zabbix-datasource",
+          "uid": "${DS_ALEXANDERZOBNIN-ZABBIX-DATASOURCE}"
+        },
+        "definition": "Zabbix - host",
+        "description": "Use /.* para todos os switches do grupo ou informe um host específico.",
+        "hide": 0,
+        "includeAll": true,
+        "label": "Switch / Hosts",
+        "multi": false,
+        "name": "zbx_host",
+        "options": [],
+        "query": {
+          "application": "",
+          "group": "switch",
+          "host": "/.*[Ss][Ww][Ii][Tt][Cc][Hh].*/",
+          "item": "",
+          "itemTag": "",
+          "queryType": "host"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "/.*/",
+          "value": "/.*/"
+        },
+        "description": "Filtro de item usado no plugin Zabbix. Mantenha `/.*/` se filtros específicos não retornarem dados. Depois teste `/Interface.*/` para reduzir carga.",
+        "hide": 0,
+        "label": "Filtro Item",
+        "name": "zbx_item_filter",
+        "options": [
+          {
+            "selected": true,
+            "text": "/.*/",
+            "value": "/.*/"
+          }
+        ],
+        "query": "/.*/",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "",
+          "value": ""
+        },
+        "description": "Application/Tag do Zabbix. Deixe vazio se seu template não usa Application.",
+        "hide": 0,
+        "label": "Application",
+        "name": "zbx_application",
+        "options": [
+          {
+            "selected": true,
+            "text": "",
+            "value": ""
+          }
+        ],
+        "query": "",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "",
+          "value": ""
+        },
+        "description": "Item Tag do Zabbix. Deixe vazio normalmente.",
+        "hide": 0,
+        "label": "Item tag",
+        "name": "zbx_item_tag",
+        "options": [
+          {
+            "selected": true,
+            "text": "",
+            "value": ""
+          }
+        ],
+        "query": "",
+        "skipUrlSync": false,
+        "type": "textbox"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-30m",
+    "to": "now"
+  },
+  "timepicker": {
+    "hidden": false
+  },
+  "timezone": "browser",
+  "title": "Switchs - Status ICMP Total RX TX",
+  "uid": "switches-status-icmp-totaa-html-10",
+  "version": 20,
+  "weekStart": ""
+}
