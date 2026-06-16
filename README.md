@@ -1,6 +1,6 @@
 # Monitoramento da saúde da rede LAN
 
-![Dashboard](<imagens/custom properties.png>)
+![Dashboard](<imagens/dashboard_monitoring.png>)
 
 ## 1. Objetivo do projeto
 
