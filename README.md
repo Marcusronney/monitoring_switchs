@@ -1,5 +1,7 @@
 # Monitoramento da saúde da rede LAN
 
+![Dashboard](<imagens/custom properties.png>)
+
 ## 1. Objetivo do projeto
 
 Essa dashboard foi criada para monitorar switchs a partir de itens coletados no Zabbix via SNMP. O foco principal é dar uma visão da saúde da rede.
@@ -16,6 +18,8 @@ A dashboard ajuda a identificar preventivamente falhas e instabilidades na rede,
 
 
 Com pequenas modificações é possível utilizar Outros tipos de Datasource.
+
+Grafana Labs: https://grafana.com/orgs/marcusronney/dashboards
 
 ---
 
