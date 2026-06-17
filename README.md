@@ -52,7 +52,7 @@ A Dashboard é composta pelos seguintes cards:
    - legenda de status.
 
 2. **Cards KPI**
-   - total de switches identificados;
+   - total de switchs identificados;
    - switches online;
    - switches offline;
    - portas com instabilidade;
