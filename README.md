@@ -375,7 +375,7 @@ packet loss
 
 O status da porta é baseada na MIB `ifOperStatus`.
 
-Mapeamento IF-MIB: https://mibs.observium.org/mib/IF-MIB/
+Mapeamento IF-MIB: **https://mibs.observium.org/mib/IF-MIB/**
 
 | Valor | Status |
 |---:|---|
