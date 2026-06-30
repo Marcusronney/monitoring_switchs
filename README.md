@@ -41,7 +41,7 @@ A dashboard depende principalmente de:
 ---
 
 ## 3. Dashboard
-
+https://grafana.com/grafana/dashboards/25472/
 ![dashboard](imagens/Dashboard.png)
 
 A Dashboard é composta pelos seguintes cards:
